@@ -1,4 +1,8 @@
-# loam-livox-converter
+# [LOAM](https://github.com/hku-mars/loam_livox/) converter to [HDMapping](https://github.com/MapsHD/HDMapping)
+
+## Hint
+
+Please change branch to [Bunker-DVI-Dataset-reg-1](https://github.com/MapsHD/benchmark-LOAM-Livox-to-HDMapping/tree/Bunker-DVI-Dataset-reg-1) for quick experiment.  
 
 ## Example Dataset: 
 
