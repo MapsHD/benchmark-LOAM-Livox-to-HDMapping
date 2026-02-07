@@ -29,7 +29,7 @@ cd ~/hdmapping-benchmark/data
 Expected data should appear in ~/hdmapping-benchmark/data/output_hdmapping-loam
 Use tool [multi_view_tls_registration_step_2](https://github.com/MapsHD/HDMapping) to open session.json from ~/hdmapping-benchmark/data/output_hdmapping-loam.
 
-You should see following data
+You should see following data in folder '~/hdmapping-benchmark/data/output_hdmapping-loam'
 
 lio_initial_poses.reg
 
