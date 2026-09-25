@@ -1,12 +1,12 @@
 #!/bin/bash
 
-IMAGE_NAME='loam_noetic'
+IMAGE_NAME='loam-livox_noetic'
 TMUX_SESSION='ros1_session'
 
-DATASET_CONTAINER_PATH='/ros_ws/dataset/recorded-loam.bag'
+DATASET_CONTAINER_PATH='/ros_ws/dataset/recorded-loam-livox.bag'
 BAG_OUTPUT_CONTAINER='/ros_ws/recordings'
 
-RECORDED_BAG_NAME="recorded-loam.bag"
+RECORDED_BAG_NAME="recorded-loam-livox.bag"
 HDMAPPING_OUT_NAME="output_hdmapping"
 
 usage() {
@@ -74,7 +74,7 @@ docker run -it --rm \
     tmux send-keys -t '"$TMUX_SESSION"' '\''sleep 5
 source /opt/ros/noetic/setup.bash
 source /ros_ws/devel/setup.bash
-roslaunch loam_livox livox.launch use_sim_time:=true
+stdbuf -oL -eL roslaunch loam_livox livox.launch 2>&1 | tee '"$BAG_OUTPUT_CONTAINER"'/loam-livox-launch.log
 '\'' C-m
 
     # ---------- PANEL 2: rosbag record ----------
@@ -83,7 +83,7 @@ roslaunch loam_livox livox.launch use_sim_time:=true
 source /opt/ros/noetic/setup.bash
 source /ros_ws/devel/setup.bash
 echo "[record] start"
-rosbag record /velodyne_cloud_registered /aft_mapped_to_init  -O '"$BAG_OUTPUT_CONTAINER/$RECORDED_BAG_NAME"'
+rosbag record /velodyne_cloud_registered /aft_mapped_to_init /clock -O '"$BAG_OUTPUT_CONTAINER/$RECORDED_BAG_NAME"'
 echo "[record] exit"
 '\'' C-m
 
@@ -130,7 +130,7 @@ docker run -it --rm \
     source /ros_ws/devel/setup.bash
     rosrun loam-to-hdmapping listener \
       \"$BAG_OUTPUT_CONTAINER/$RECORDED_BAG_NAME\" \
-      \"$BAG_OUTPUT_CONTAINER/$HDMAPPING_OUT_NAME-loam\"
+      \"$BAG_OUTPUT_CONTAINER/$HDMAPPING_OUT_NAME-loam-livox\"
   "
 
 echo "=== DONE ==="

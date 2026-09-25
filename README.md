@@ -14,22 +14,22 @@ cd ~/hdmapping-benchmark
 git clone https://github.com/MapsHD/benchmark-LOAM-Livox-to-HDMapping.git --recursive
 cd benchmark-LOAM-Livox-to-HDMapping
 git checkout Bunker-DVI-Dataset-reg-1
-docker build -t loam_noetic .
+docker build -t loam-livox_noetic .
 ```
 
 ## Step 3 (run docker, file 'reg-1.bag-pc.bag' should be in '~/hdmapping-benchmark/data')
 ```shell
 cd ~/hdmapping-benchmark/benchmark-LOAM-Livox-to-HDMapping
-chmod +x docker_session_run-ros1-loam.sh 
+chmod +x docker_session_run-ros1-loam-livox.sh 
 cd ~/hdmapping-benchmark/data
-~/hdmapping-benchmark/benchmark-LOAM-Livox-to-HDMapping/docker_session_run-ros1-loam.sh reg-1.bag-pc.bag .
+~/hdmapping-benchmark/benchmark-LOAM-Livox-to-HDMapping/docker_session_run-ros1-loam-livox.sh reg-1.bag-pc.bag .
 ```
 
 ## Step 4 (Open and visualize data)
-Expected data should appear in ~/hdmapping-benchmark/data/output_hdmapping-loam
-Use tool [multi_view_tls_registration_step_2](https://github.com/MapsHD/HDMapping) to open session.json from ~/hdmapping-benchmark/data/output_hdmapping-loam.
+Expected data should appear in ~/hdmapping-benchmark/data/output_hdmapping-loam-livox
+Use tool [multi_view_tls_registration_step_2](https://github.com/MapsHD/HDMapping) to open session.json from ~/hdmapping-benchmark/data/output_hdmapping-loam-livox.
 
-You should see following data in folder '~/hdmapping-benchmark/data/output_hdmapping-loam'
+You should see following data in folder '~/hdmapping-benchmark/data/output_hdmapping-loam-livox'
 
 lio_initial_poses.reg
 
