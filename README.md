@@ -30,7 +30,7 @@ sudo apt install -y nlohmann-json3-dev
    ```
   File:
 
-  test_ws/src/loam-livox-to-hdmapping/src/loam_livox/source/read_camera.cpp
+  /test_ws/src/benchmark-LOAM-Livox-to-HDMapping/src/loam_livox/source/read_camera.cpp
 
     cap.set(CV_CAP_PROP_SETTINGS, 1); //opens camera properties dialog
     cap.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
@@ -42,7 +42,7 @@ sudo apt install -y nlohmann-json3-dev
     cap.set( cv::CV_CAP_PROP_FRAME_WIDTH, 320 );
     cap.set( cv::CV_CAP_PROP_FRAME_HEIGHT, 240 );
 
-    test_ws/src/loam-livox-to-hdmapping/src/loam_livox/source/laser_feature_extractor.hpp
+    /test_ws/src/benchmark-LOAM-Livox-to-HDMapping/src/loam_livox/source/laser_feature_extractor.hpp
 
     #include <opencv/cv.h>
 
@@ -56,7 +56,7 @@ Clone the repo
 ```shell
 mkdir -p /test_ws/src
 cd /test_ws/src
-git clone https://github.com/marcinmatecki/loam-livox-to-hdmapping --recursive
+git clone https://github.com/MapsHD/benchmark-LOAM-Livox-to-HDMapping.git --recursive
 cd ..
 catkin_make
 ```
